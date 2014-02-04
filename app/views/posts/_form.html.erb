@@ -1,28 +1,32 @@
 <%= form_for @post do |f| %>
   
   <% if @post.errors.any? %>
-  <div class="alert alert-error">
-    <h4>There was an error:</h4>
-    <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
+    <div class='row'>
+      <div class="alert alert-error span8">
+        <h4>There was an error:</h4>
+        <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
   <% end %>
+  
+  <div class='control-group'>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br />
+  <div class='control-group'>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </div>
 
-  <%= f.label :url %>
-  <%= f.text_field :url %>
-  <br />
-
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <br />
-
+  <div class='control-group'>
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: 5 %>
+  </div>
 
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
