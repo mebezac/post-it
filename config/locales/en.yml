@@ -21,3 +21,14 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      post:
+        category_ids: "Categories"
+    errors:
+      models:
+        post:
+          attributes:
+            category_ids:
+              blank: "must be chosen for your post."
+
