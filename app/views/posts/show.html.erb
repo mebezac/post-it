@@ -5,7 +5,7 @@
 <p>
 <%= render @post.categories %>
 </p>
-<%= render 'shared/content_title', title: @post.title %>
+<h4><%= link_to @post.title, fix_url(@post.url), target: "_blank" %></h4>
 <p>
   <%= @post.description %>
 </p>
@@ -28,7 +28,7 @@
     <em>"<%= comment.body %>"</em>
     <p>
       <span class="quiet">by</span> <%= comment.creator.username %>
-      <small>at <%= comment.created_at %></small>
+      <small>at <%= display_datetime(comment.created_at) %></small>
     </p>
   </div>
 <% end %>
