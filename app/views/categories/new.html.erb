@@ -1,6 +1,7 @@
 <%= render 'shared/content_title', title: "Create New Category" %>
 
 <%= form_for @category do |f| %>
+  <%= render 'shared/errors', object: @category %>
   <div class='control-group'>
     <%= f.label :name %>
     <%= f.text_field :name %>
