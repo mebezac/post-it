@@ -44,7 +44,7 @@ class PostsController < ApplicationController
     if vote.valid?
       flash[:notice] = "Your vote was counted"
     else
-      flash[:error] = "You can not vote on \"#{@post.title}\" more than once. #{vote.errors.full_messages}"
+      flash[:error] = "You can not vote on \"#{@post.title}\" more than once. #{vote.errors.full_messages}, username being sent: #{vote.creator.username}"
     end
     redirect_to :back
   end
