@@ -23,7 +23,7 @@
     <h4><%= link_to post.title, fix_url(post.url), target: "_blank" %></h4>
     <small>
       <span class='quiet'>
-        (<%= link_to 'view post', post_path(post) %>) (<%= link_to "visit url: #{fix_url(post.url)}", fix_url(post.url), target: "_blank" %>)
+        (<%= link_to 'view post', post_path(post) %>) (<%= link_to "visit url", fix_url(post.url), target: "_blank" %>)
       </span>
     </small>
     <p><%= post.description %></p>
