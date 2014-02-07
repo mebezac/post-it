@@ -20,13 +20,7 @@ class CommentsController < ApplicationController
     if vote.valid?
       flash[:notice] = "Your vote was counted"
     else
-      usernames_used = []
-      @comment.votes.all.each do |vote|
-        usernames_used << vote.creator.username
-        usernames_used
-      end
-
-      flash[:error] = "You can only vote on a comment once. #{vote.errors.full_messages}, username being sent: #{vote.creator.username}, users who have voted for this: #{usernames_used}"
+      flash[:error] = "You can only vote on a comment once."
     end
     redirect_to :back
   end
