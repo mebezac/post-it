@@ -1,15 +1,45 @@
+<% hide_comment_count ||= false %>
 <div class="row">
+  <div class='span0 well text-center'> 
+    <% if logged_in? %>
+      <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
+        <i class='icon-arrow-up'></i>
+      <% end %>
+      <br/>
+    <% end %>
+
+    <%= post.total_votes %>
+
+    <% if logged_in? %>
+      <br/>
+      <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
+        <i class='icon-arrow-down'></i>
+      <% end %>
+    <% end %>
+
+  </div>
   <div class="span8 well">
     <%= render post.categories %>
     <h4><%= link_to post.title, fix_url(post.url), target: "_blank" %></h4>
+    <small>
+      <span class='quiet'>
+        (<%= link_to 'view post', post_path(post) %>) (<%= link_to "visit url: #{fix_url(post.url)}", fix_url(post.url), target: "_blank" %>)
+      </span>
+    </small>
     <p><%= post.description %></p>
     <p>
-      <span class="quiet">posted by</span> <%= post.creator.username %>
+      <span class="quiet">posted by</span> <%= link_to post.creator.username, user_path(post.creator) %>
       <small>at <%= display_datetime(post.created_at) %></small>
     </p>
     <small>
-      <span><%= link_to("#{post.comments.size} comments ", post_path(post)) %></span>
-      <span><%= link_to '| Edit Post', edit_post_path(post) %></span>
+      <% if !hide_comment_count %>
+        <span><%= link_to("#{post.comments.size} comments ", post_path(post)) %></span>
+      <% end %>
+
+      <% if post.creator == current_user %>
+        <span><%= link_to '| Edit Post', edit_post_path(post) %></span>
+      <% end %>
+
     </small>
   </div>
 </div>
