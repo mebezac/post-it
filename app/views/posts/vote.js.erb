@@ -1,6 +1,2 @@
-<% if @vote.valid?%>
-  $("#post_<%= @post.id %>_votes").html("<%= @post.total_votes %>");
-  <%= ajax_flash('#top-div') %>
-<% else %>
-  <%= ajax_flash('#top-div') %>
-<% end %>
+$("#post_<%= @post.id %>_votes").html("<%= @post.total_votes %>");
+<%= ajax_flash('#top-div') %>
