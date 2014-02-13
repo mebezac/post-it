@@ -1,5 +1,5 @@
+<%= render 'posts/post', post: @post, hide_comment_count: true %>
 
-<%= render 'post', post: @post, hide_comment_count: true %>
 
 <%= link_to 'All Posts', posts_path %>
 
@@ -16,6 +16,6 @@
 
 <h5>Comments:</h5>
 
-<% sort_by_votes(@post.comments).each do |comment| %>
+<% sort_by_votes(@post.reload.comments).each do |comment| %>
   <%= render 'comments/comment', comment: comment %>
 <% end %>

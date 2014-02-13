@@ -32,8 +32,8 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      flash[:notice] = "Your post was updated!"
-      redirect_to post_path
+      flash[:notice] = "Your post was updated! If you changed the title, notice the new url."
+      redirect_to post_path(@post)
     else
       render :edit
     end 
@@ -69,6 +69,6 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.find_by(slug: params[:id])
   end
 end
