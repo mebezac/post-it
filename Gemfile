@@ -15,6 +15,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'voteable_mbz'
 gem 'sluggable_mbz'
+gem 'newrelic_rpm'
 
 group :doc do
   gem 'sdoc', require: false
