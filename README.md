@@ -1,4 +1,4 @@
 Postit
 ==============
 
-A Reddit clone built on rails.
+A Reddit clone built usin Ruby on Rails.
